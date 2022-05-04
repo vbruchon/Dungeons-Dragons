@@ -1,10 +1,7 @@
 package Personnage;
 import java.util.Scanner;
 
-public class Magicien {
-    String name;
-    int pointOfLife;
-    int attackForce;
+public class Magicien extends Personnage{
     String sort;
     String filtre;
 
@@ -12,9 +9,9 @@ public class Magicien {
         Scanner saisieUser = new Scanner(System.in);
         System.out.print("Veuillez saisir un nom pour votre personnage");
 
-        name = saisieUser.nextLine();
-        pointOfLife = 3;
-        attackForce = 8;
+        this.name = saisieUser.nextLine();
+        this.pointOfLife = 3;
+        this.attackForce = 8;
         sort = "Abracadabra";
         filtre = "Filtre de Guérison";
 
@@ -27,9 +24,9 @@ public class Magicien {
 
     public void MagicianWithName(String nameParams) {
 
-        name = nameParams;
-        pointOfLife = 5;
-        attackForce = 8;
+        this.name = nameParams;
+        this.pointOfLife = 5;
+        this.attackForce = 8;
         sort = "Abracadabra";
         filtre = "Filtre de Guérison";
 
@@ -42,9 +39,9 @@ public class Magicien {
 
     public void MagicianWithAllParams(String nameParams, String img, int pointOfLifeParams, int attackForceParams) {
 
-        name = nameParams;
-        pointOfLife = pointOfLifeParams ;
-        attackForce = attackForceParams ;
+        this.name = nameParams;
+        this.pointOfLife = pointOfLifeParams ;
+        this.attackForce = attackForceParams ;
         sort = "Abracadabra" ;
         filtre = "Filtre de Guérison" ;
 

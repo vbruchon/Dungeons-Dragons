@@ -1,9 +1,6 @@
 package Personnage;
 import java.util.Scanner;
-public class Guerrier {
-    String name;
-    int pointOfLife;
-    int attackForce;
+public class Guerrier extends Personnage {
     String arme;
     String bouclier;
 
@@ -11,11 +8,12 @@ public class Guerrier {
         Scanner saisieUser = new Scanner(System.in);
         System.out.print("Veuillez saisir un nom pour votre personnage");
 
-        name = saisieUser.nextLine();
-        pointOfLife = 3;
-        attackForce = 8;
-        arme = "Baaaaaaannzzaaaaaaaiiii !!!!";
-        bouclier = "Bouclieeeeerrr!";
+        this.name = saisieUser.nextLine();
+        this.pointOfLife = 5 ;
+        this.attackForce = 5 ;
+
+        arme = "Epée !!!!";
+        bouclier = "Bouclier!";
 
         System.out.println("Le nom du personnage est : " + name);
         System.out.println("Point de vie : " + pointOfLife);
@@ -26,11 +24,11 @@ public class Guerrier {
 
     public void GuerrierWithName(String nameParams) {
 
-        name = nameParams;
-        pointOfLife = 3;
-        attackForce = 8;
-        arme = "Baaaaaaannzzaaaaaaaiiii !!!!";
-        bouclier = "Bouclieeeeerrr!";
+        this.name = nameParams;
+        this.pointOfLife = 5 ;
+        this.attackForce = 5 ;
+        arme = "Epée !!!!";
+        bouclier = "Bouclier!";
 
         System.out.println("Le nom du personnage est : " + name);
         System.out.println("Point de vie : " + pointOfLife);
@@ -41,11 +39,11 @@ public class Guerrier {
 
     public void GuerrierWithAllParams(String nameParams, String img, int pointOfLifeParams, int attackForceParams) {
 
-        name = nameParams;
-        pointOfLife = pointOfLifeParams;
-        attackForce = attackForceParams;
-        arme = "Baaaaaaannzzaaaaaaaiiii !!!!";
-        bouclier = "Bouclieeeeerrr!";
+        this.name = nameParams;
+        this.pointOfLife = pointOfLifeParams;
+        this.attackForce = attackForceParams;
+        arme = "Epée !!!!";
+        bouclier = "Bouclier!";
 
         System.out.println("Le nom du personnage est : " + name);
         System.out.println("Point de vie : " + pointOfLife);
