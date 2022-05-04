@@ -1,7 +1,7 @@
 package Personnage;
 
 public class Personnage {
-    String name;
+    public String name;
     int pointOfLife;
     int attackForce;
 }

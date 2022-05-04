@@ -1,6 +1,7 @@
 package Personnage;
 import java.util.Scanner;
 public class Guerrier extends Personnage {
+    String type = "Guerrier";
     String arme;
     String bouclier;
 
@@ -14,12 +15,13 @@ public class Guerrier extends Personnage {
 
         arme = "Epée !!!!";
         bouclier = "Bouclier!";
+        System.out.println(toString());
 
-        System.out.println("Le nom du personnage est : " + name);
+        /*System.out.println("Le nom du personnage est : " + name);
         System.out.println("Point de vie : " + pointOfLife);
         System.out.println("attackForce : " + attackForce);
         System.out.println("arme : " + arme);
-        System.out.println("bouclier : " + bouclier);
+        System.out.println("bouclier : " + bouclier);*/
     }
 
     public void GuerrierWithName(String nameParams) {
@@ -30,11 +32,11 @@ public class Guerrier extends Personnage {
         arme = "Epée !!!!";
         bouclier = "Bouclier!";
 
-        System.out.println("Le nom du personnage est : " + name);
+        /*System.out.println("Le nom du personnage est : " + name);
         System.out.println("Point de vie : " + pointOfLife);
         System.out.println("attackForce : " + attackForce);
         System.out.println("arme : " + arme);
-        System.out.println("bouclier : " + bouclier);
+        System.out.println("bouclier : " + bouclier);*/
     }
 
     public void GuerrierWithAllParams(String nameParams, String img, int pointOfLifeParams, int attackForceParams) {
@@ -45,15 +47,17 @@ public class Guerrier extends Personnage {
         arme = "Epée !!!!";
         bouclier = "Bouclier!";
 
-        System.out.println("Le nom du personnage est : " + name);
+        /*System.out.println("Le nom du personnage est : " + name);
         System.out.println("Point de vie : " + pointOfLife);
         System.out.println("attackForce : " + attackForce);
         System.out.println("arme : " + arme);
-        System.out.println("bouclier : " + bouclier);
+        System.out.println("bouclier : " + bouclier);*/
     }
 
-    public static void main(String[] args) {
-        Guerrier myGuerrier = new Guerrier();
-        System.out.println(myGuerrier);
+    public String toString() {
+        return "Votre personnage est un " + this.type + ", vous l'aves nommé " + this.name +
+                ", il possède " + this.pointOfLife + " point de vie, " +
+                " il a une puissance d'attaque de " + this.attackForce +
+                " son arme d'attaque est " + this.arme + " et votre arme de défense est " + this.bouclier;
     }
 }
