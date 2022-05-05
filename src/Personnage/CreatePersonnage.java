@@ -1,6 +1,4 @@
-import Personnage.Guerrier;
-import Personnage.Magicien;
-
+package Personnage;
 import java.util.Scanner;
 
 public class CreatePersonnage {

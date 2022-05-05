@@ -12,7 +12,4 @@ public class EquipmentForAll extends Equipment{
         this.pointOfLife = 5 ;
         System.out.println("Le joueur utilise " + nameEquipment + " et gagne " + pointOfLife + " point de vie");
     }
-
-    public static void main(String[] args) {
-    }
 }

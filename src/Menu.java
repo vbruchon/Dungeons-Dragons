@@ -1,3 +1,5 @@
+import Personnage.CreatePersonnage;
+
 import java.util.Scanner;
 //import Personnage.Guerrier;
 
