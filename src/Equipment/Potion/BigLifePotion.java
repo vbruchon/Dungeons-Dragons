@@ -1,6 +1,8 @@
-package Equipment;
+package Equipment.Potion;
 
-public class BigLifePotion extends Equipment{
+import Equipment.Equipment;
+
+public class BigLifePotion extends Equipment {
 
     public BigLifePotion(){
         setNameEquipment("Grande potion de vie");

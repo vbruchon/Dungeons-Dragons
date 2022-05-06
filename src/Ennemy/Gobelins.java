@@ -1,8 +1,9 @@
 package Ennemy;
 
 public class Gobelins extends Ennemys {
-    public void Gobelins(){
-        this.pointOfLife = 6 ;
-        this.pointOfAttack = 1 ;
+    public Gobelins(){
+        setNameEnnemy("Gobelin");
+        setPointOfLife(6);
+        setPointOfAttack(1);
     }
 }

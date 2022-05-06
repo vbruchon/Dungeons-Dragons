@@ -1,8 +1,8 @@
 package Ennemy;
-
 public class Wizzards extends Ennemys{
-    public void Wizzards(){
-        this.pointOfLife = 9 ;
-        this.pointOfAttack = 2 ;
+    public Wizzards(){
+        setNameEnnemy("Sorcier");
+        setPointOfLife(9);
+        setPointOfAttack(2);
     }
 }

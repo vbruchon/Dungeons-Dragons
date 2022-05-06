@@ -1,6 +1,8 @@
-package Equipment;
+package Equipment.Arms;
 
-public class Sledgehammer extends Equipment{
+import Equipment.Equipment;
+
+public class Sledgehammer extends Equipment {
     public Sledgehammer(){
         setNameEquipment("Massue");
         setAttackForce(3);

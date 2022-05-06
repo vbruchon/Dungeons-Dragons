@@ -1,4 +1,6 @@
-package Equipment;
+package Equipment.Spell;
+
+import Equipment.Equipment;
 
 public class Lightning extends Equipment {
     public Lightning() {

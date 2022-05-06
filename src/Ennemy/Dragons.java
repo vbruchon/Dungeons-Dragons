@@ -1,8 +1,8 @@
 package Ennemy;
-
 public class Dragons extends Ennemys {
-    public void Dragons(){
-        this.pointOfLife = 15 ;
-        this.pointOfAttack = 4 ;
+    public Dragons(){
+        setNameEnnemy("Dragons");
+        setPointOfLife(15);
+        setPointOfAttack(4);
     }
 }

@@ -1,6 +1,6 @@
 package Plateau_Dé;
 
-import Menu.Menu;
+import Menu.Menu1;
 
 public class Plateau {
     private Case box[] = new Case[64];
@@ -85,7 +85,7 @@ public class Plateau {
                 "pour quitter écriver \"Quitter\" dans la console");
         String quit = "Q";
         String recup = "R";
-        String userInput = Menu.userInput();
+        String userInput = Menu1.userInput();
 
         if (recup.equals((userInput))) {
 
@@ -108,7 +108,7 @@ public class Plateau {
         String quit = "Q";
         String kill = "T";
 
-        String userInput = Menu.userInput();
+        String userInput = Menu1.userInput();
 
         while (!userInput.equals(quit) || !userInput.equals(kill)) {
 
@@ -121,7 +121,7 @@ public class Plateau {
             } else {
                 System.out.println("Êtes vous sure d'avoir saisie correctement " + kill + " ou " + quit + " ? ");
                 System.out.println("Merci de resaisir \"T\" Pour tuer l'ennemie, \"Quitter\" pour quitter");
-                userInput = Menu.userInput();
+                userInput = Menu1.userInput();
             }
         }
     }

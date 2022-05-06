@@ -1,6 +1,8 @@
-package Equipment;
+package Equipment.Arms;
 
-public class Sword extends Equipment{
+import Equipment.Equipment;
+
+public class Sword extends Equipment {
     public Sword (){
         setNameEquipment("Epée");
         setAttackForce(5);
