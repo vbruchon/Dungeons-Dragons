@@ -1,8 +1,7 @@
 package Partie;
 
-import Partie.Game;
-import Partie.Menu.*;
-public class LanceJeux {
+import Partie.Menu.Menu;
+public class LancerJeu {
 
     public static void main(String[] args) {
         Menu m = new Menu();

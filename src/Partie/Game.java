@@ -6,36 +6,26 @@ import Partie.Plateau.Case.Case;
 
 public class Game {
     private Plateau board;
-    private De_Position d;
-    private Case cel;
     private int positionJoueur = 1;
 
 
     public void play() {
         this.board = new Plateau();
 
-        while (positionJoueur < 64) {
-            this.d = new De_Position();
+        while (positionJoueur < 18) {
+            De_Position d = new De_Position();
             int de = d.lancerDe();
             newPositionJoueur(de);
             actionCase(positionJoueur);
         }
+        System.out.println("Felicitation vous avez gagné");
     }
 
     public void actionCase(int positionJoueur) {
         Case boxCase = board.getBoxContent(positionJoueur);
-        String boxContent = boxCase.getContent();
-
-        if (boxContent.equals("surprise")) {
-            System.out.println("La case contient une surprise. Récupérer là, puis Lancer les dés");
-            boxCase.surpriseCase();
-        } else if (boxContent.equals("ennemy")) {
-            System.out.println("Vous avec un ennemie battez le et lancer les dés");
-            boxCase.ennemyCase();
-        } else {
-            boxCase.emptyCase();
-        }
+        boxCase.action();
     }
+
 
     public void newPositionJoueur(int de) {
         this.positionJoueur = this.positionJoueur + de;
