@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"ennemy"},{"l":"equipment"},{"l":"equipment.arms"},{"l":"equipment.potion"},{"l":"equipment.spell"},{"l":"partie"},{"l":"partie.de"},{"l":"partie.menu"},{"l":"partie.plateau"},{"l":"partie.plateau.Case"},{"l":"personnage"}]
