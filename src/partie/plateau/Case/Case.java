@@ -33,5 +33,8 @@ public abstract class Case {
             return new MonsterCase();
         }
     }
-
+    public void videCase() {
+        System.out.println("La case est desormais vide");
+        setContent("empty");
+    }
 }

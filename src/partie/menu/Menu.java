@@ -2,7 +2,10 @@ package partie.menu;
 
 import java.util.Scanner;
 
+import partie.exception.MyException;
 import personnage.*;
+import personnage.user.Guerrier;
+import personnage.user.Magicien;
 
 public class Menu {
     /*______________ATTIBUTS_____________*/
@@ -17,6 +20,15 @@ public class Menu {
 
     private String lancerPartie = "l";
     private String lancerDe = "L";
+
+    public String getUserInput() {
+        return userInput;
+    }
+
+    public void setUserInput(String userInput) {
+        this.userInput = userInput;
+    }
+
     private String userInput;
 
     private String kill = "T";
@@ -31,12 +43,11 @@ public class Menu {
 
     /*___COMMENCER___*/
     public void beginGameOrQuitDialogMenu() {
-        System.out.println("Bienvenue sur le jeux !! ");
         System.out.println("Pour commencer une partie veuillez écire " + commencer);
         System.out.println(" Si vous voulez quitter le jeu veuillez écrire " + quitter);
     }
 
-    public void verifyBeginOrQuit(String begin, String quit) {
+    public void verifyBeginOrQuit(String begin, String quit) throws MyException {
         this.userInput = scanner.nextLine();
 
         if (begin.equals(userInput)) {
@@ -45,7 +56,8 @@ public class Menu {
             System.out.println("A bientôt !");
             System.exit(5);
         } else {
-            System.out.println("Êtes vous sure d'avoir saisie correctement " + this.commencer + " ou " + this.quitter + " ? ");
+            System.out.println("Veuillez saisir uniquement " + this.commencer + " ou " + this.quitter + " ? ");
+            throw new MyException("Mauvaise saise");
         }
     }
 
@@ -55,7 +67,7 @@ public class Menu {
         System.out.println("Sinon veuillez écrire dans la console " + quitter);
     }
 
-    public Personnage createOrQuit(String create, String quitter) {
+    public Personnage createOrQuit(String create, String quitter) throws MyException {
         this.userInput = scanner.nextLine();
 
         if (create.equals(userInput)) {
@@ -65,8 +77,8 @@ public class Menu {
             verifyTypePersonnage(magicien, warriors, name);
             return personnage;
         } else {
-            System.out.println("Êtes vous sure d'avoir saisie correctement " + this.create + " ou " + this.quitter + " ? ");
-            throw new RuntimeException("Vous n'avez pas choisi de personnage");
+            System.out.println("Veuillez saisir uniquement " + this.create + " ou " + this.quitter + " ? ");
+            throw new MyException("Vous n'avez pas choisi de personnage");
         }
     }
 
@@ -95,7 +107,7 @@ public class Menu {
         } else if (warriors.equals(userInput)) {
             personnage = new Guerrier(personnageName);
         } else {
-            System.out.println("Êtes vous sure d'avoir saisie correctement " + this.magicien + " ou " + this.warriors + " ? ");
+            System.out.println("Veuillez saisir uniquement " + this.magicien + " ou " + this.warriors + " ? ");
         }
     }
 
@@ -112,11 +124,39 @@ public class Menu {
             System.out.println("A bientot!");
             System.exit(5);
         } else {
-            System.out.println("Êtes vous sure d'avoir saisie correctement " + this.lancerPartie + " ou " + this.quitter + " ? ");
+            System.out.println("Veuillez saisir uniquement " + this.lancerPartie + " ou " + this.quitter + " ? ");
         }
     }
 
+    public String catchSurprise(){
+        System.out.println("La case contient une surprise. Récupérer là, puis Lancer les dés");
 
+        System.out.println("Pour récupérer la surprise écrivez " + this.recup);
+        System.out.println("Pour quitter écriver " + this.quitter);
+
+        this.userInput = scanner.nextLine();
+
+        return userInput;
+    }
+
+    public String ennemyCase(){
+        System.out.println("Vous avec un ennemie battez le et lancer les dés");
+        System.out.println("Pour combattre l'ennemie écrivez " + this.kill + ", pour quitter écriver " + this.quitter + " dans la console");
+
+        this.userInput= scanner.nextLine();
+
+        return userInput;
+    }
+    public void verifSurpriseCase(String userInput){
+        System.out.println("Êtes vous sure d'avoir saisie correctement " + this.recup + " ou " + this.quitter + " ? ");
+        if ((!userInput.equals(this.recup)) || (!userInput.equals(this.quitter))) {
+            catchSurprise();        }
+    }
+    public void verifEnnemyCase(String userInput){
+        if ((!userInput.equals(this.kill)) || (!userInput.equals(this.quitter))) {
+            System.out.println("Êtes vous sure d'avoir saisie correctement " + this.kill + " ou " + this.quitter + " ? ");
+            ennemyCase();        }
+    }
     /*----------SETTER/GETTER--------*/
     public String setQuitter(String quitter) {
         this.quitter = quitter;

@@ -1,5 +1,4 @@
 package personnage;
-
 import equipment.potion.BigLifePotion;
 import equipment.potion.LifePotion;
 
@@ -7,12 +6,6 @@ public abstract class Personnage {
     private String name;
     private int lifePoint;
     private int attackForce;
-    private int lifePointPerso;
-    private int result;
-    private int newLife;
-
-    private int newForce;
-    private int forceActuelle;
 
 
 
@@ -60,6 +53,33 @@ public abstract class Personnage {
             newLife = this.setLifePoint(result);
             System.out.println("Vous buvez une grande potion de vie. Maintenant votre personnage possède " + newLife + " point de vie.");
         }
+    }
+
+    public void combattre(Personnage user, Personnage ennemy){
+        int lifePointUser = user.getLifePoint();
+        int lifePointEnnemy = ennemy.getLifePoint();
+        int  attackPointUser = user.getAttackForce();
+        int attackForceEnnemy = ennemy.getAttackForce();
+
+        while ((lifePointEnnemy > 0) && (lifePointUser > 0)){
+
+            System.out.println("vous tapez l'ennemie avec " + attackPointUser + " point d'attaque");
+            lifePointEnnemy = lifePointEnnemy - attackPointUser;
+            System.out.println("L'ennemie a maintenant " + lifePointEnnemy + " point de vie");
+            if (lifePointEnnemy <= 0 ){
+                System.out.println("Félicitations ! Vous avez tuer le monstre ! ");
+            } else {
+                System.out.println("l'ennemie vous tape avec " + attackForceEnnemy + " point d'attaque");
+                lifePointUser = lifePointUser - attackForceEnnemy;
+                System.out.println("Vous avez maintenant " + lifePointUser + " point de vie");
+                if ( lifePointUser <= 0 ){
+                    System.out.println("Le monstre vous a tué.");
+                    System.out.println("Game Over ! Le jeux s'arrete");
+                    System.exit(5);
+                }
+            }
+        }
+
     }
     /*_______________________________________________Abstract_Methodes________________________________________________*/
     public abstract void equipSpell(String spell);
