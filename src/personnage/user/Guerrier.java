@@ -2,10 +2,6 @@ package personnage.user;
 
 import equipment.arms.Sledgehammer;
 import equipment.arms.Sword;
-import equipment.potion.BigLifePotion;
-import equipment.potion.LifePotion;
-import equipment.spell.FireBall;
-import equipment.spell.Lightning;
 import personnage.Personnage;
 
 public class Guerrier extends Personnage {
@@ -37,7 +33,7 @@ public class Guerrier extends Personnage {
         if (arm.equals("Sword")) {
             Sword sword = new Sword();
 
-            int forcePoint = sword.getAttackForce();
+            int forcePoint = sword.attackForce();
             System.out.println("La froce de cette arme est de " + forcePoint);
             int m = this.getAttackForce();
             int result = m + forcePoint;
@@ -48,7 +44,7 @@ public class Guerrier extends Personnage {
         } else if (arm.equals("Bouclier")) {
             Sledgehammer sldg = new Sledgehammer();
 
-            int forcePoint = sldg.getAttackForce();
+            int forcePoint = sldg.attackForce();
             System.out.println("La froce de cette arme est de " + forcePoint);
             int m = this.getAttackForce();
             int result = m + forcePoint;

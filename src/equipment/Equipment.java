@@ -1,20 +1,28 @@
 package equipment;
 
+public interface Equipment {
+    public String nameEquipment();
+    public int pointOfLife();
+    public int attackForce();
+
+}
+/*package equipment;
+
 public class Equipment {
     private String nameEquipment ;
     private int attackForce ;
     private int pointOfLife ;
     /*_____________________________________________Getter_Setter_____________________________________________________*/
 
-    /*---------nameEquipment----------*/
+    /*---------nameEquipment----------
     public String getNameEquipment() { return nameEquipment; }
     public void setNameEquipment(String nameEquipment) { this.nameEquipment = nameEquipment;}
 
-    /*---------attackForce----------*/
+    /*---------attackForce----------
     public int getAttackForce() { return attackForce; }
     public void setAttackForce(int attackForce) { this.attackForce = attackForce; }
 
-    /*---------pointOflife----------*/
+    /*---------pointOflife----------
     public int getPointOfLife() { return pointOfLife; }
     public void setPointOfLife(int pointOfLife) { this.pointOfLife = pointOfLife; }
-}
+} */

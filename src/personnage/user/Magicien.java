@@ -9,6 +9,10 @@ import personnage.Personnage;
 public class Magicien extends Personnage {
     String sort;
     String filtre;
+    int forcePoint;
+    int m ;
+    int result;
+    int newForce;
 
     public Magicien() {this("TOOT");}
 
@@ -33,23 +37,23 @@ public class Magicien extends Personnage {
         if (spell.equals("FireBall")) {
             FireBall fireball = new FireBall();
 
-            int forcePoint = fireball.getAttackForce();
+            forcePoint = fireball.attackForce();
             System.out.println("La froce de se sort est de " + forcePoint);
-            int m = this.getAttackForce();
-            int result = m + forcePoint;
+            m = this.getAttackForce();
+            result = m + forcePoint;
 
-            int newForce = this.setAttackForce(result);
+            newForce = this.setAttackForce(result);
             System.out.println("Vous êtes équipée du sort " + spell + ". Votre force est maintenantt de " + newForce);
 
         } else if (spell.equals("Lightning")) {
             Lightning lightning = new Lightning();
 
-            int forcePoint = lightning.getAttackForce();
+            forcePoint = lightning.attackForce();
             System.out.println("La froce de se sort est de " + forcePoint);
-            int m = this.getAttackForce(); //Ne va pas dans magicien pour récupérer le getAttackForce
-            int result = m + forcePoint;
+            m = this.getAttackForce();
+            result = m + forcePoint;
 
-            int newForce = this.setAttackForce(result);
+            newForce = this.setAttackForce(result);
             System.out.println("Vous êtes équipée du sort " + spell + ". Votre force est maintenantt de " + newForce);
         }
     }

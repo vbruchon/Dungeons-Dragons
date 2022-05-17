@@ -2,6 +2,9 @@ package personnage;
 import equipment.potion.BigLifePotion;
 import equipment.potion.LifePotion;
 
+/**
+ * @Class Class abstract that contains all common attributes of all personnage
+ */
 public abstract class Personnage {
     private String name;
     private int lifePoint;
@@ -38,7 +41,7 @@ public abstract class Personnage {
         if (potion.equals("LittlePotion")){
             LifePotion lp = new LifePotion();
 
-            lifePoint = lp.getPointOfLife();
+            lifePoint = lp.pointOfLife();
             result = lifePointPersonnage + lifePoint;
 
             newLife = this.setLifePoint(result);
@@ -47,7 +50,7 @@ public abstract class Personnage {
         } else if (potion.equals("BigPotion")){
             BigLifePotion blp = new BigLifePotion();
 
-            lifePoint = blp.getPointOfLife();
+            lifePoint = blp.pointOfLife();
             result = lifePointPersonnage + lifePoint;
 
             newLife = this.setLifePoint(result);
@@ -84,29 +87,7 @@ public abstract class Personnage {
     /*_______________________________________________Abstract_Methodes________________________________________________*/
     public abstract void equipSpell(String spell);
     public abstract void equipArm(String arm);
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     /*
     private void boirePetitePotion(){
