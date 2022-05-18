@@ -17,10 +17,6 @@ public class Guerrier extends Personnage {
      */
     String arme;
     String bouclier;
-    int forcePoint;
-    int m ;
-    int result;
-    int newForce;
 
     /**
      * @Guerrier = First constructor if a programm don't have a name of a personnage. Assigned a name by default
@@ -57,63 +53,13 @@ public class Guerrier extends Personnage {
         System.out.println(toString);
     }
     /*________________________________________________Abstract_Methodes__________________________________________________*/
-
-    /**
-     * @method equipArm = abstract Method extends to Personnage. Assigned this for aquip arm at personnage
-     * @param arm = Name of arm assigned to the surpriseCase with instance of arms
-     */
-    @Override
-    public void equipArm(String arm) {
-
-        if (arm.equals("Sword")) {
-            Sword sword = new Sword();
-
-            forcePoint = sword.attackForce();
-            System.out.println("La froce de cette arme est de " + forcePoint);
-            m = this.getAttackForce();
-            result = m + forcePoint;
-
-            newForce = this.setAttackForce(result);
-            System.out.println("Vous êtes équipée d'une " + arm + ". Votre force est maintenantt de " + newForce);
-
-        } else if (arm.equals("Bouclier")) {
-            Sledgehammer sldg = new Sledgehammer();
-
-            forcePoint = sldg.attackForce();
-            System.out.println("La froce de cette arme est de " + forcePoint);
-            m = this.getAttackForce();
-            result = m + forcePoint;
-
-            newForce = this.setAttackForce(result);
-            System.out.println("Vous êtes équipée d'un " + arm + ". Votre force est maintenantt de " + newForce);
-        }
-    }
-
-    /**
-     * @method equipSpell = Method for equip spell at personnage but as It's a warriors he can't use spell so don't equip spell
-     * @param spell = Name of spell assigned to the surpriseCase with instance of spell
-     */
-    @Override
-    public void equipSpell(String spell){
-        System.out.println("Vous êtes un guerrier vous n'utilisez que des armes! Vous ne pouvais pas vous équiper du sort " + spell);
-    }
-
-    /**
-     *  @method drinkPotion = Method for assigned potion's point of life at personnage's
-     * @param potion = A String with name of potion
-     */
-    @Override
-    public void drinkPotion(String potion) {
-        super.drinkPotion(potion);
-    }
-
     /**
      *  @method combattre = Method for figth with a ennemy when the user is in MonsterCase
      * @param personnage = Personnage create by user
      * @param ennemy = The monster to assigned at MonsterCaser with Instance of class Ennemy
      */
     public void combattre(Personnage personnage , Personnage ennemy) {
-        super.combattre(personnage, ennemy);
+        super.combattre(ennemy);
     }
 
     /*____________________________________________________________________________________________________________________*/

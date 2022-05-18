@@ -31,7 +31,7 @@ public class Magicien extends Personnage {
         System.out.println(toString);
     }
 /*________________________________________________Abstract_Methodes__________________________________________________*/
-    @Override
+   /* @Override
     public void equipSpell(String spell) {
 
         if (spell.equals("FireBall")) {
@@ -64,9 +64,10 @@ public class Magicien extends Personnage {
     @Override
     public void drinkPotion(String potion) {
         super.drinkPotion(potion);
-    }
-    public void combattre(Personnage personnage , Personnage ennemy) {
-        super.combattre(personnage, ennemy);
+    }*/
+
+    public void combattre(Personnage ennemy) {
+        super.combattre(ennemy);
     }
 
     /*____________________________________________________________________________________________________________________*/

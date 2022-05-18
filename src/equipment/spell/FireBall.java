@@ -1,34 +1,12 @@
 package equipment.spell;
 
 import equipment.Equipment;
+import partie.plateau.CaseBoard;
 
-public class FireBall implements Equipment {
-
-    String nameEquipment;
-    int attackForce;
+public class FireBall extends Spells {
 
     public FireBall(){
-        nameEquipment();
-        attackForce();
-    }
-
-
-    @Override
-    public String nameEquipment() {
-        nameEquipment = "Eclair" ;
-
-        return nameEquipment;
-    }
-
-    @Override
-    public int pointOfLife() {
-        return 0;
-    }
-
-    @Override
-    public int attackForce() {
-        attackForce = 3 ;
-
-        return attackForce;
+        setNameEquipment("Boule de Feu");
+        setAttackForce(7);
     }
 }

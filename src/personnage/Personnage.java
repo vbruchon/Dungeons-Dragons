@@ -41,49 +41,19 @@ public abstract class Personnage {
 
     /*---------SETTER----------*/
     public void setName(String name) { this.name = name; }
-    public int setLifePoint(int pointOfLife) { this.lifePoint = pointOfLife; return pointOfLife; }
-    public int setAttackForce(int attackForce) { this.attackForce = attackForce; return attackForce; }
+    public void setLifePoint(int pointOfLife) { this.lifePoint = pointOfLife; }
+    public void setAttackForce(int attackForce) { this.attackForce = attackForce; }
     /*________________________________________________________________________________________________________________*/
 
     /*__________________________________________________Methodes______________________________________________________*/
-
-    /**
-     * @method drinkPotion = Method for assigning potion's point of life at player's point life
-     * @param potion = A String with name of potion
-     */
-    public  void drinkPotion(String potion){
-        lifePoint = this.getLifePoint();
-
-
-        if (potion.equals("LittlePotion")){
-            LifePotion lp = new LifePotion();
-
-            this.lifePointPotion = lp.pointOfLife();
-            this.result = this.lifePoint + this.lifePointPotion;
-
-            this.newLife = this.setLifePoint(result);
-            System.out.println("Vous buvez une petite potion de vie. Maintenant votre personnage possède " + newLife + " point de vie.");
-
-        } else if (potion.equals("BigPotion")){
-            BigLifePotion blp = new BigLifePotion();
-
-            this.lifePointPotion = blp.pointOfLife();
-            this.result = this.lifePoint + this.lifePointPotion;
-
-            this.newLife = this.setLifePoint(result);
-            System.out.println("Vous buvez une grande potion de vie. Maintenant votre personnage possède " + newLife + " point de vie.");
-        }
-    }
-
     /**
      * @method combattre = Method for control a fight between User & Ennemy
-     * @param user = Personnage create by user
      * @param ennemy = The monster to assigned at MonsterCaser with Instance of class Ennemy
      */
-    public void combattre(Personnage user, Personnage ennemy){
-        this.lifePoint = user.getLifePoint();
+    public void combattre(Personnage ennemy){
+        this.lifePoint = this.getLifePoint();
         this.lifePointEnnemy = ennemy.getLifePoint();
-        this.attackForce = user.getAttackForce();
+        this.attackForce = this.getAttackForce();
         this.attackForceEnnemy = ennemy.getAttackForce();
 
         while ((this.lifePointEnnemy > 0) && (this.lifePoint > 0)){
@@ -91,6 +61,7 @@ public abstract class Personnage {
             System.out.println("vous tapez l'ennemie avec " + this.attackForce + " point d'attaque");
             this.lifePointEnnemy = this.lifePointEnnemy - this.attackForce;
             System.out.println("L'ennemie a maintenant " + this.lifePointEnnemy + " point de vie");
+
             if (this.lifePointEnnemy <= 0 ){
                 System.out.println("Félicitations ! Vous avez tuer le monstre ! ");
             } else {
@@ -106,45 +77,4 @@ public abstract class Personnage {
         }
 
     }
-    /*_______________________________________________Abstract_Methodes________________________________________________*/
-
-    /**
-     * @method equipSpell = Method for equip spell at personnage
-     * @param spell = Name of spell assigned to the surpriseCase with instance of spell
-     */
-    public abstract void equipSpell(String spell);
-
-    /**
-     * @method equipArm = Method for equip arm at personnage
-     * @param arm = Name of arm assigned to the surpriseCase with instance of arms
-     */
-    public abstract void equipArm(String arm);
 }
-
-
-
-
-
-    /*
-    private void boirePetitePotion(){
-        LifePotion potion = new LifePotion();
-
-        this.lifePoint = potion.getPointOfLife();
-        this.lifePointPerso = this.getLifePoint();
-        this.result = lifePointPerso + lifePoint;
-
-        this.newLife = this.setLifePoint(result);
-        System.out.println("Maintenant j'ai " + this.newLife + " point de vie");
-    }
-
-    private void boireGrandePotion(){
-        BigLifePotion potion = new BigLifePotion();
-
-        this.lifePoint = potion.getPointOfLife();
-        this.lifePointPerso = this.getLifePoint();
-        this.result = lifePointPerso + lifePoint;
-
-        this.newLife = this.setLifePoint(result);
-        System.out.println("Maintenant j'ai " + this.newLife + " point de vie");
-    }
-*/

@@ -2,8 +2,8 @@ package partie;
 
 import partie.de.De;
 import partie.plateau.*;
-import partie.plateau.Case.Case;
 import personnage.Personnage;
+import personnage.ennemy.Ennemy;
 
 public class Game {
     /*__________Attributs_________*/
@@ -46,17 +46,10 @@ public class Game {
             De d = new De();
             de = d.lancerDe();
             newPositionJoueur(de);
-            actionCase(positionJoueur);
+            CaseBoard caseBoard =board.getBoxContent(positionJoueur);
+            caseBoard.action(personnage);
+            this.board.viderCase(positionJoueur);
         }
-    }
-
-    /**
-     * @method actionCase = Method who assigned a random contains between "empty", "Surprise" , "Monster" at all Case of my board.
-     * @param positionJoueur = positionJoueur on board.
-     */
-    public void actionCase(int positionJoueur) {
-        Case boxCase = board.getBoxContent(positionJoueur);
-        boxCase.action(personnage);
     }
 
     /**
