@@ -1,22 +1,29 @@
 package partie.de;
 
-import java.util.Scanner;
-
+import partie.menu.Menu;
+import personnage.Personnage;
 public class De {
     private int de = 0;
     private String quit = "Q";
     private String lance = "L";
+    private String userInput;
 
     public int lancerDe() {
-        Scanner scanner;
-        scanner = new Scanner(System.in);
-
-        System.out.println("Pour lancer les dés écriver " + this.lance + " dans la console");
-        System.out.println("Pour quitter écriver " + this.quit);
-
-        String userInput = scanner.nextLine();
+        Menu m = new Menu();
+        userInput = m.lancerDe();
 
         if (lance.equals((userInput))) {
+            System.out.println("""
+                                   (( _______
+                         _______     /\\O    O\\
+                        /O     /\\   /  \\      \\
+                       /   O  /O \\ / O  \\O____O\\ ))
+                    ((/_____O/    \\\\    /O     /
+                      \\O    O\\    / \\  /   O  /
+                       \\O    O\\ O/   \\/_____O/
+                        \\O____O\\/ )) mrf      ))
+                      ((
+                    """);
             this.de = (int) (Math.random() * (6 - 1 + 1) + 1);
             System.out.println("Le joueur avance de " + this.de + " case");
         } else if (quit.equals(userInput)) {

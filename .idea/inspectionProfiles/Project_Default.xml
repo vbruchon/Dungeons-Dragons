@@ -2,7 +2,7 @@
   <profile version="1.0">
     <option name="myName" value="Project Default" />
     <inspection_tool class="JavadocDeclaration" enabled="true" level="WARNING" enabled_by_default="true">
-      <option name="ADDITIONAL_TAGS" value="personnage,caseMax,positopnJoueur,board,Construtor,d,de,method,newPositionJoueur,actionCase,Guerrier,arm,bouclier,arme,Class,name,lifePoint,attackForce,result,lifePointPotion,newLife,lifePointEnnemy,attackForceEnnemy,newForce" />
+      <option name="ADDITIONAL_TAGS" value="personnage,caseMax,positopnJoueur,board,Construtor,d,de,method,newPositionJoueur,actionCase,Guerrier,arm,bouclier,arme,Class,name,lifePoint,attackForce,result,lifePointPotion,newLife,lifePointEnnemy,attackForceEnnemy,newForce,GETTER,SETTER" />
     </inspection_tool>
   </profile>
 </component>

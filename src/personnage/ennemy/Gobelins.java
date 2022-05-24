@@ -1,7 +1,6 @@
 package personnage.ennemy;
 
-import partie.plateau.CaseBoard;
-import personnage.Personnage;
+import partie.plateau.caseBoard.CaseBoard;
 
 public class Gobelins extends Ennemy implements CaseBoard {
 
@@ -10,6 +9,29 @@ public class Gobelins extends Ennemy implements CaseBoard {
         setName("Gobelin");
         setLifePoint(6);
         setAttackForce(1);
+        /*System.out.println("""
+                                      _..
+                                    .'   `",
+                                   ;        \\
+                            .---._; ^,       ;
+                         .-'      ;{ :  .-. ._;
+                    .--""          \\*'   o/ o/
+                   /   ,  /         :    _`";
+                  ;     \\;          `.   `"+'
+                  |      }    /    _.'T"--"\\
+                  :     /   .'.--""-,_ \\    ;
+                   \\   /   /_         `,\\   ;
+                    : /   /  `-.,_      \\`.  :
+                    |;   {     .' `-     ; `, \\
+                    : \\  `;   {  `-,__..-'   \\ `}+=,
+                     : \\  ;    `.   `,        `-,\\"
+                     ! |\\ `;     \\}?\\|}
+                  .-'  | \\ ;
+                .'}/ i.'  \\ `,        fsc                  \s
+                ``''-'    /   \\
+                         /J|/{/
+                           `'
+                """);*/
     }
 
 }

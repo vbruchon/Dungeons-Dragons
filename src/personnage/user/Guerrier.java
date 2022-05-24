@@ -46,21 +46,44 @@ public class Guerrier extends Personnage {
         setName(name);
         setLifePoint(lifePoint);
         setAttackForce(attackForce);
+        setLifeMax(10);
+        setAttackMax(10);
         arme = "";
         bouclier = "";
-
+        System.out.println("""
+                      _,.
+                    ,` -.)
+                   ( _/-\\\\-._
+                  /,|`--._,-^|             ,
+                  \\_| |`-._/||          ,'|
+                    |  `-, / |          /  /
+                    |     || |         /  /
+                     `r-._||/   __    /  /
+                 __,-<_     )`-/  ` ./  /
+                '  \\   `---'   \\  /  /
+                    |           |. /  /
+                    /           / /  /
+                \\_/' \\        |/  /
+                 |    |   _,^-' /  /
+                 |    , ``  (\\/  /_
+                  \\,.->._    \\X-=/^
+                  (  /   `-._//^`
+                   `Y-.____(__}
+                    |     {__)
+                          ()
+                """);
         String toString = toString();
         System.out.println(toString);
     }
-    /*________________________________________________Abstract_Methodes__________________________________________________*/
+    /*________________________________________________Methodes__________________________________________________*/
     /**
      *  @method combattre = Method for figth with a ennemy when the user is in MonsterCase
-     * @param personnage = Personnage create by user
      * @param ennemy = The monster to assigned at MonsterCaser with Instance of class Ennemy
      */
-    public void combattre(Personnage personnage , Personnage ennemy) {
+    public void combattre( Personnage ennemy) {
         super.combattre(ennemy);
     }
+
 
     /*____________________________________________________________________________________________________________________*/
 
@@ -69,10 +92,7 @@ public class Guerrier extends Personnage {
      * @return String who resume all of personnage
      */
     public String toString() {
-        return "Votre personnage est un " + this.getClass().getSimpleName() + ", vous l'aves nommé " + this.getName() +
-                ", il possède " + this.getLifePoint() + " point de vie, " +
-                " il a une puissance d'attaque de " + this.getAttackForce() +
-                ", Actuellement vous n'avez pas d'equipement, ni de bouclier. ";
+        return "Nom : " + getName()+ ", Class : "+ getClass().getSimpleName() + ", Point de Vie : " + getLifePoint() + ", Puissance d'Attaque " + getAttackForce();
     }
 
 }
@@ -80,4 +100,10 @@ public class Guerrier extends Personnage {
         /*"Votre personnage est un " + this.getClass().getSimpleName() + ", vous l'aves nommé " + this.getName() +
         ", il possède " + this.getLifePoint() + " point de vie, " +
         " il a une puissance d'attaque de " + this.getAttackForce() +
-        " son sort d'attaque est " + this.arme + " et son filtre de défense est " + this.bouclier;*/
+        " son sort d'attaque est " + this.arme + " et son filtre de défense est " + this.bouclier;
+
+
+        return "Votre personnage est un " + this.getClass().getSimpleName() + ", vous l'aves nommé " + this.getName() +
+                ", il possède " + this.getLifePoint() + " point de vie, " +
+                " il a une puissance d'attaque de " + this.getAttackForce() +
+                ", Actuellement vous n'avez pas d'equipement, ni de bouclier. ";*/

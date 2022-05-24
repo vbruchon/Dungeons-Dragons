@@ -6,6 +6,7 @@ public class BigLifePotion extends Potions {
 
     public BigLifePotion() {
         setNameEquipment("Grande Potion de Vie");
-        setPointOfLife(5);
+        setPointOfLifeEquipment(5);
+
     }
 }

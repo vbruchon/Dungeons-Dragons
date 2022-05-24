@@ -1,6 +1,6 @@
-package partie.plateau.Case;
+package partie.plateau.caseBoard;
 
-import partie.plateau.CaseBoard;
+import partie.plateau.caseBoard.CaseBoard;
 import personnage.Personnage;
 
 public class EmptyCase implements CaseBoard {

@@ -1,11 +1,15 @@
 package equipment;
 
 import equipment.arms.Arms;
+import equipment.arms.Sledgehammer;
+import equipment.arms.Sword;
 import equipment.potion.BigLifePotion;
 import equipment.potion.LifePotion;
 import equipment.potion.Potions;
+import equipment.spell.FireBall;
+import equipment.spell.Lightning;
 import equipment.spell.Spells;
-import partie.plateau.CaseBoard;
+import partie.plateau.caseBoard.CaseBoard;
 import partie.plateau.Plateau;
 import personnage.Personnage;
 import partie.menu.Menu;
@@ -14,15 +18,25 @@ import personnage.user.Magicien;
 
 public class Equipment implements CaseBoard {
 
-    /*____Attributs____*/
-
+    /*____Attributs de Class____*/
     private String nameEquipment;
-    private int attackForce;
-    private int pointOfLife;
-    Menu m;
-    Plateau board;
+    private int attackForceEquipment;
+    private int pointOfLifeEquipment;
     String quit = "Q";
     String recup = "R";
+    /*_________________________*/
+
+    /*___Attributes_for_User___*/
+    Menu m;
+    int pointOfLifeUser;
+    int attackForceUser;
+    int lifePointUser;
+    int lifePointMax;
+    int newLifeUser;
+    int newPointAttackUser;
+    int attackMax;
+
+
 
     /*____Méthodes____*/
 
@@ -31,7 +45,7 @@ public class Equipment implements CaseBoard {
         String userInput = this.m.catchSurprise();
 
         if (recup.equals((userInput))) {
-            whatIsSurprise(personnage);
+            whatIsSurprise(this);
             if (canEquip(personnage)) {
                 equip(personnage);
             } else {
@@ -46,62 +60,217 @@ public class Equipment implements CaseBoard {
     }
 
 
-    public void whatIsSurprise(Personnage personnage) {
+    public void whatIsSurprise(Equipment equipment) {
+
         System.out.println(nameEquipment);
+
+        if (equipment instanceof LifePotion) {
+            System.out.println("""
+                       _____
+                      `.___,'
+                       (___)
+                       <   >
+                        ) (
+                       /`-.\\
+                      /     \\
+                     / _    _\\
+                    :,' `-.' `:
+                    |         |
+                    :         ;
+                     \\       /
+                      `.___.'\s""");
+        }
+        if (equipment instanceof BigLifePotion) {
+            System.out.println("""
+                     ____
+                    |    |
+                    |____|
+                    |    |
+                    (    )
+                    )    (
+                  .'      `.
+                 /          \\
+                |------------|
+                |JACK DANIELS|
+                |    ----    |
+                |   (No.7)   |
+                |    ----    |
+                | Tennessee  |
+                |  WHISKEY   |
+                |  40% Vol.  |
+                |------------|
+                |____________|""");
+        }
+        if (equipment instanceof Sword) {
+            System.out.println(
+                    """
+             /\
+            // \
+            || |
+            || |
+            || |
+            || |
+            || |
+            || |
+         __ || | __
+        /___||_|___\\
+             ww
+             MM
+            _MM_
+           (&<>&)
+            ~~~~""");
+        }
+        if (equipment instanceof Sledgehammer) {
+            System.out.println("""
+                        |\\
+                        | \\        /|
+                        |  \\____  / |
+                       /|__/AMMA\\/  |
+                     /AMMMMMMMMMMM\\_|
+                 ___/AMMMMMMMMMMMMMMA
+                 \\   |MVKMMM/ .\\MMMMM\\
+                  \\__/MMMMMM\\  /MMMMMM---
+                  |MMMMMMMMMMMMMMMMMM|  /
+                  |MMMM/. \\MM.--MMMMMM\\/
+                  /\\MMM\\  /MM\\  |MMMMMM   ___
+                 /  |MMMMMMMMM\\ |MMMMMM--/   \\-.
+                /___/MMMMMMMMMM\\|M.--M/___/_|   \\
+                     \\VMM/\\MMMMMMM\\  |      /\\ \\/
+                      \\V/  \\MMMMMMM\\ |     /_  /
+                        |  /MMMV'   \\|    |/ _/
+                        | /              _/  /
+                        |/              /| \\'
+                VK                     /_  /
+                                       /  /
+                """);
+        }
+        if (equipment instanceof FireBall) {
+            System.out.println("""
+                   \s
+                                  /                \s
+                              (                    \s
+                              (                    \s
+                             ,     ,,              \s
+                                    (.             \s
+                                    /,             \s
+                                (.   ,             \s
+                              (  (.                \s
+                               ,  (/,              \s
+                                  ((/(  ,          \s
+                                  ((((  (          \s
+                                 ((((* ,(          \s
+                                  (#(, (/          \s
+                              (* ((##,((,          \s
+                               (((###((#           \s
+                               (((###(##           \s
+                               (####%###,   (      \s
+                                .((###%#(   (      \s
+                                (((#&&&%(  (#,     \s
+                              **/(##%&&&&/ #(      \s
+                            ((*/###&&&&&%((%(      \s
+                             ,(#%&&&&&&&&&&&#((    \s
+                            ((#&&&&&&&&&&&%#((     \s
+                            *(##&&&&&&&&&%#((*     \s
+                              ((###%&&%##(((       \s
+                               *(((((((((*         \s
+                               
+                    """);
+        }
+        if (equipment instanceof Lightning) {
+            System.out.println("""
+
+                                         d$$$$$P
+                                        d$$$$$P
+                                       $$$$$$"
+                                     .$$$$$$"
+                                    .$$$$$$"
+                                   4$$$$$$$$$$$$$"
+                                  ""\"""\""3$$$$$"
+                                        z$$$$P
+                                      z$$$$P
+                                    d$$$$$$$$$$"
+                                    *******$$$"
+                                         .$$$"
+                                        .$$"
+                                       4$P"
+                                      z$"
+                                     zP
+                                    z"
+                                   /    
+                                  ^
+                               
+                    """);
+        }
     }
 
-    public boolean canEquip(Personnage personnage){
+    public boolean canEquip(Personnage personnage) {
         boolean answer = false;
+        pointOfLifeUser = personnage.getLifePoint();
+        lifePointMax = personnage.getLifeMax();
 
-        if (this instanceof Potions){
+        if ((this instanceof Potions) && (pointOfLifeUser < lifePointMax)) {
             answer = true;
         }
-        else if ((personnage instanceof Guerrier) && (this instanceof Arms)){
+        if ((personnage instanceof Guerrier) && (this instanceof Arms)) {
             answer = true;
         } else if ((personnage instanceof Magicien) && (this instanceof Spells)) {
             answer = true;
         }
 
-        return  answer;
+        return answer;
     }
 
     public void equip(Personnage personnage) {
+        //Equipment
+        pointOfLifeEquipment = getPointOfLifeEquipment();
+        attackForceEquipment = getAttackForceEquipment();
+        //personnage
+        lifePointUser = personnage.getLifePoint();
+        attackForceUser = personnage.getAttackForce();
+        attackMax = personnage.getAttackMax();
+        lifePointMax = personnage.getLifeMax();
 
-        int lifePoint = personnage.getLifePoint();
-        int pointAttack = personnage.getAttackForce();
-        int newLife = lifePoint + this.pointOfLife;
-        int newPointAttack = pointAttack + this.attackForce;
+        if ((attackForceUser + attackForceEquipment) < attackMax) {
+            newPointAttackUser = attackForceUser + attackForceEquipment;
+            personnage.setAttackForce(newPointAttackUser);
+        } else {
+            newPointAttackUser = attackMax;
+            personnage.setAttackForce(newPointAttackUser);
+        }
 
-        personnage.setLifePoint(newLife);
-        personnage.setAttackForce(newPointAttack);
-
-        System.out.println("Vous vous équipez avec " + this.getNameEquipment() + ". Maintenant votre personnage possède " + newLife + " point de vie, et " + newPointAttack + " point d'attaque");
+        if ((lifePointUser + pointOfLifeEquipment < lifePointMax)) {
+            newLifeUser = lifePointUser + pointOfLifeEquipment;
+            personnage.setLifePoint(newLifeUser);
+        } else {
+            newLifeUser = lifePointMax;
+            personnage.setLifePoint(newLifeUser);
+        }
+        System.out.println("Vous vous équipez avec " + this.getNameEquipment() + ". Maintenant votre personnage possède " + newLifeUser + " point de vie, et " + newPointAttackUser + " point d'attaque");
     }
 
-    /*__________________________SETTER________________________*/
-    public void setNameEquipment(String nameEquipment) {
-        this.nameEquipment = nameEquipment;
-    }
+    /*__________________________GETTER_SETTER________________________*/
 
-    public void setAttackForce(int attackForce) {
-        this.attackForce = attackForce;
-    }
-
-    public void setPointOfLife(int pointOfLife) {
-        this.pointOfLife = pointOfLife;
-    }
-
-    /*__________________________GETTER________________________*/
     public String getNameEquipment() {
         return nameEquipment;
     }
 
-    public int getAttackForce() {
-        return attackForce;
+    public void setNameEquipment(String nameEquipment) {
+        this.nameEquipment = nameEquipment;
     }
 
-    public int getPointOfLife() {
-        return pointOfLife;
+    public int getAttackForceEquipment() {
+        return attackForceEquipment;
+    }
+
+    public void setAttackForceEquipment(int attackForceEquipment) {
+        this.attackForceEquipment = attackForceEquipment;
+    }
+
+    public int getPointOfLifeEquipment() {
+        return pointOfLifeEquipment;
+    }
+
+    public void setPointOfLifeEquipment(int pointOfLifeEquipment) {
+        this.pointOfLifeEquipment = pointOfLifeEquipment;
     }
 }
-

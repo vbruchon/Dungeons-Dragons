@@ -1,4 +1,4 @@
-package partie.plateau;
+package partie.plateau.caseBoard;
 
 import personnage.Personnage;
 

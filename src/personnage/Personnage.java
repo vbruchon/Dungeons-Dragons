@@ -1,6 +1,8 @@
 package personnage;
-import equipment.potion.BigLifePotion;
-import equipment.potion.LifePotion;
+
+import personnage.ennemy.Dragons;
+import personnage.ennemy.Gobelins;
+import personnage.ennemy.Wizzards;
 
 /**
  * @Class Class abstract that contains all common attributes and method of all personnage of game.
@@ -16,16 +18,13 @@ public abstract class Personnage {
      * @lifePointEnnemy ; // @lifePointEnnemy = point of life of monster
      * @attackForceEnnemy = point of attack of monster
      */
-    private String name; //
-    private int lifePoint; //
-    private int attackForce; //
-
-    int result; // @result = sum of point of life potion and point of life player's
-    int newLife; // @newLife = new point of life of personnage after drink potion
-    int lifePointPotion; // @lifePointPotion =  point of life of potion can give to player
+    private String name;
+    private int lifePoint;
+    private int attackForce;
+    private int lifeMax;
+    private int attackMax;
     int lifePointEnnemy ; // @lifePointEnnemy = point of life of monster
     int attackForceEnnemy ; // @attackForceEnnemy = point of attack of monster
-
 
     /*_________________________________________________Getter_Setter__________________________________________________*/
 
@@ -38,11 +37,15 @@ public abstract class Personnage {
     public String getName() { return name; }
     public int getLifePoint() { return lifePoint; }
     public int getAttackForce() { return attackForce; }
+    public int getLifeMax() { return lifeMax; }
+    public int getAttackMax() { return attackMax; }
 
     /*---------SETTER----------*/
     public void setName(String name) { this.name = name; }
     public void setLifePoint(int pointOfLife) { this.lifePoint = pointOfLife; }
     public void setAttackForce(int attackForce) { this.attackForce = attackForce; }
+    public void setLifeMax(int lifeMax) { this.lifeMax = lifeMax; }
+    public void setAttackMax(int attackMax) { this.attackMax = attackMax; }
     /*________________________________________________________________________________________________________________*/
 
     /*__________________________________________________Methodes______________________________________________________*/
@@ -56,6 +59,83 @@ public abstract class Personnage {
         this.attackForce = this.getAttackForce();
         this.attackForceEnnemy = ennemy.getAttackForce();
 
+        if (ennemy instanceof Dragons){
+            System.out.println("Vous vous retrouvez face à un Dragons");
+
+            System.out.println("   .:'                                  `:.                                    \n" +
+                    "  ::'                                    `::                                   \n" +
+                    " :: :.                                  .: ::                                  \n" +
+                    "\n" +
+                    "  `:. `:.             .             .:'  .:'                                   \n" +
+                    "   `::. `::           !           ::' .::'                                     \n" +
+                    "       `::.`::.    .' ! `.    .::'.::'                                         \n" +
+                    "         `:.  `::::'':!:``::::'   ::'                                          \n" +
+                    "         :'*:::.  .:' ! `:.  .:::*`:                                           \n" +
+                    "        :: HHH::.   ` ! '   .::HHH ::                                          \n" +
+                    "       ::: `H TH::.  `!'  .::HT H' :::                                         \n" +
+                    "       ::..  `THHH:`:   :':HHHT'  ..::                                         \n" +
+                    "       `::      `T: `. .' :T'      ::'                                         \n" +
+                    "         `:. .   :         :   . .:'                                           \n" +
+                    "           `::'               `::'                                             \n" +
+                    "             :'  .`.  .  .'.  `:                                               \n" +
+                    "             :' ::.       .:: `:                                               \n" +
+                    "             :' `:::     :::' `:                                               \n" +
+                    "              `.  ``     ''  .'                                                \n" +
+                    "               :`...........':                                                 \n" +
+                    "               ` :`.     .': '                                                 \n" +
+                    "                `:  `\"\"\"'  :'");
+        } else if (ennemy instanceof Gobelins) {
+            System.out.println("Vous vous retrouvez face à un Gobelins");
+            System.out.println("""
+                                      _..
+                                    .'   `",
+                                   ;        \\
+                            .---._; ^,       ;
+                         .-'      ;{ :  .-. ._;
+                    .--""          \\*'   o/ o/
+                   /   ,  /         :    _`";
+                  ;     \\;          `.   `"+'
+                  |      }    /    _.'T"--"\\
+                  :     /   .'.--""-,_ \\    ;
+                   \\   /   /_         `,\\   ;
+                    : /   /  `-.,_      \\`.  :
+                    |;   {     .' `-     ; `, \\
+                    : \\  `;   {  `-,__..-'   \\ `}+=,
+                     : \\  ;    `.   `,        `-,\\"
+                     ! |\\ `;     \\}?\\|}
+                  .-'  | \\ ;
+                .'}/ i.'  \\ `,        fsc                  \s
+                ``''-'    /   \\
+                         /J|/{/
+                           `'
+                """);
+        } else if (ennemy instanceof Wizzards) {
+            System.out.println("Vous vous retrouvez face à un Gobelins");
+            System.out.println("""
+                                         ____\s
+                                      .'* *.'
+                                   __/_*_*(_
+                                  / _______ \\
+                                 _\\_)/___\\(_/_\s
+                                / _((\\- -/))_ \\
+                                \\ \\())(-)(()/ /
+                                 ' \\(((()))/ '
+                                / ' \\)).))/ ' \\
+                               / _ \\ - | - /_  \\
+                              (   ( .;''';. .'  )
+                              _\\"__ /    )\\ __"/_
+                                \\/  \\   ' /  \\/
+                                 .'  '...' ' )
+                                  / /  |  \\ \\
+                                 / .   .   . \\
+                                /   .     .   \\
+                               /   /   |   \\   \\
+                             .'   /    b    '.  '.
+                         _.-'    /     Bb     '-. '-._\s
+                     _.-'       |      BBb       '-.  '-.\s
+                    (________mrf\\____.dBBBb.________)____)
+                    """);
+        }
         while ((this.lifePointEnnemy > 0) && (this.lifePoint > 0)){
 
             System.out.println("vous tapez l'ennemie avec " + this.attackForce + " point d'attaque");
@@ -70,11 +150,36 @@ public abstract class Personnage {
                 System.out.println("Vous avez maintenant " + this.lifePoint + " point de vie");
                 if ( lifePoint <= 0 ){
                     System.out.println("Le monstre vous a tué.");
+                    System.out.println("""
+                                                        ,--.
+                                                       {    }
+                                                      K,   }
+                                                     /  `Y`
+                                                _   /   /
+                                               {_'-K.__/
+                                                 `/-.__L._
+                                                 /  ' /`\\_}
+                                                /  ' /     -ART BY ZEUS-
+                                        ____   /  ' /
+                                 ,-'~~~~    ~~/  ' /_
+                               ,'             ``~~~%%',
+                              (                     %  Y
+                             {                      %% I
+                            {      -                 %  `.
+                            |       ',                %  )
+                            |        |   ,..__      __. Y
+                            |    .,_./  Y ' / ^Y   J   )|
+                            \\           |' /   |   |   ||
+                             \\          L_/    . _ (_,.'(
+                              \\,   ,      ^^""' / |      )
+                                \\_  \\          /,L]     /
+                                  '-_`-,       ` `   ./`
+                                     `-(_            )
+                                         ^^\\..___,.--`""");
                     System.out.println("Game Over ! Le jeux s'arrete");
                     System.exit(5);
                 }
             }
         }
-
     }
 }

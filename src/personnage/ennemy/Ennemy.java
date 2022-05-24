@@ -1,10 +1,8 @@
 package personnage.ennemy;
 
 import partie.menu.Menu;
-import partie.plateau.CaseBoard;
+import partie.plateau.caseBoard.CaseBoard;
 import personnage.Personnage;
-import personnage.ennemy.*;
-import personnage.user.*;
 
 public class Ennemy extends Personnage implements CaseBoard {
     Menu m;
@@ -32,5 +30,4 @@ public class Ennemy extends Personnage implements CaseBoard {
             m.verifEnnemyCase(userInput);
         }
     }
-
 }

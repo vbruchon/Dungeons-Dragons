@@ -2,16 +2,19 @@ package partie.plateau;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
+
 import equipment.arms.*;
 import equipment.potion.*;
 import equipment.spell.*;
-import partie.plateau.Case.EmptyCase;
+import partie.plateau.caseBoard.EmptyCase;
+import partie.plateau.caseBoard.CaseBoard;
 import personnage.ennemy.*;
 
 
 public class Plateau {
 
-    public ArrayList<CaseBoard> board;
+    public List<CaseBoard> board;
 
     private Dragons drg;
     private Gobelins gbl;
@@ -26,7 +29,7 @@ public class Plateau {
 
 
     public Plateau() {
-        this.board = new ArrayList<>(64); //24 monstre 24 surprise 16 vide//
+        this.board = new ArrayList<>(64); //24 monstres 24 surprise 16 vide//
 
         for (int i = 0; i < 4; i++) {
             drg = new Dragons();
@@ -76,9 +79,9 @@ public class Plateau {
             board.add(ec);
         }
         Collections.shuffle(board);
+
         System.out.println("Vous jouez sur un plateau de " + board.size() + " cases.");
     }
-
 
     public CaseBoard getBoxContent(int positionJoueur) {
         return board.get(positionJoueur);
@@ -88,72 +91,4 @@ public class Plateau {
         EmptyCase emptyCase = new EmptyCase();
         board.set(positionJoueur, emptyCase);
     }
-
-    /*__________________________GETTER__________________*/
-    public Dragons getDrg() { return drg; }
-    public Gobelins getGbl() { return gbl; }
-    public Wizzards getWiz() { return wiz; }
-    public FireBall getFb() { return fb; }
-    public Lightning getLn() { return ln; }
-    public Sword getS() { return s; }
-    public Sledgehammer getSlg() { return slg; }
-    public LifePotion getLp() { return lp; }
-    public BigLifePotion getBlp() { return blp; }
-    /*__________________________SETTER__________________*/
-    public void setDrg(Dragons drg) { this.drg = drg; }
-    public void setGbl(Gobelins gbl) { this.gbl = gbl; }
-    public void setWiz(Wizzards wiz) { this.wiz = wiz; }
-    public void setFb(FireBall fb) { this.fb = fb; }
-    public void setLn(Lightning ln) { this.ln = ln; }
-    public void setS(Sword s) { this.s = s; }
-    public void setSlg(Sledgehammer slg) { this.slg = slg; }
-    public void setLp(LifePotion lp) { this.lp = lp; }
-    public void setBlp(BigLifePotion blp) { this.blp = blp; }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*    private final Case[] box;
-    public Plateau() {
-        this.box = new Case[64];
-
-        for (int i = 0; i < box.length; i++) {
-             box[i] = caseContent();
-        }
-    }
-    public Case getBoxContent(int position){
-        return this.box[position];
-    }
-
-    @Override
-    public void action(Personnage personnage) {
-
-    }*/

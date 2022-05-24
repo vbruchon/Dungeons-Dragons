@@ -6,6 +6,6 @@ public class Lightning extends Spells {
 
     public Lightning() {
         setNameEquipment("Eclair");
-        setAttackForce(2);
+        setAttackForceEquipment(2);
     }
 }

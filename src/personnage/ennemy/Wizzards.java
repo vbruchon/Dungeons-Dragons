@@ -1,7 +1,6 @@
 package personnage.ennemy;
 
-import partie.plateau.CaseBoard;
-import personnage.Personnage;
+import partie.plateau.caseBoard.CaseBoard;
 
 public class Wizzards extends Ennemy implements CaseBoard {
     public Wizzards() {

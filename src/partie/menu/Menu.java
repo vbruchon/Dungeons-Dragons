@@ -1,22 +1,42 @@
 package partie.menu;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
+import database.DataBase;
 import partie.exception.MyException;
 import personnage.*;
 import personnage.user.Guerrier;
 import personnage.user.Magicien;
+import database.*;
+//import database.AddHero;
 
 public class Menu {
     /*______________ATTIBUTS_____________*/
-    private Scanner scanner;
+    private final Scanner scanner;
+    PrintData pdt;
     private Personnage personnage;
-    private String quitter = "q";
+
+    public String getUse() {
+        return use;
+    }
+
+    public String setUse(String use) {
+        this.use = use;
+        return use;
+    }
+
+    private String use = "u";
+    private String quitter = "Q";
     private String commencer = "go";
     private String create = "c";
-    private  String magicien = "m";
-    private String warriors = "g";
+    private final String magicien = "m";
+    private final String warriors = "g";
+    private String lance = "L";
     private String name;
+    AddHero ah;
+
+
 
     private String lancerPartie = "l";
     private String lancerDe = "L";
@@ -30,6 +50,7 @@ public class Menu {
     }
 
     private String userInput;
+    DataBase db;
 
     private String kill = "T";
     private String recup = "R";
@@ -37,7 +58,16 @@ public class Menu {
     /*______________CONSTRUCTEUR_____________*/
     public Menu() {
         scanner = new Scanner(System.in);
+        pdt = new PrintData();
+        //db = new DataBase();
     }
+
+
+
+
+
+
+
 
                                         /*______________METHODES_____________*/
 
@@ -61,24 +91,47 @@ public class Menu {
         }
     }
 
+
+
+
+
+
+
+/*________________________________________________________________________________________________________________*/
     /*___CREER_PERSONNAGE___*/
     public void createOrQuitDialogMenu() {
         System.out.println("Pour créer un personnage merci d'écrire " + this.create + " dans la console.");
+        System.out.println("Pour utiliser un personnage merci d'écrire " + this.use);
         System.out.println("Sinon veuillez écrire dans la console " + quitter);
     }
 
-    public Personnage createOrQuit(String create, String quitter) throws MyException {
+    public Personnage createOrUseOrQuit(String create, String quitter, String use) throws MyException, SQLException {
         this.userInput = scanner.nextLine();
 
         if (create.equals(userInput)) {
+
             System.out.println("Nous allons créer un personnage");
+
             name = namePersonnage();
             typePersonnageDialogMenu();
             verifyTypePersonnage(magicien, warriors, name);
             return personnage;
+
+
+        } else if (use.equals(userInput)) {
+            //Affiche Bdd
+            pdt.printData(db);
+            System.out.println("Veuillez saisir le nom de votre personnage");
+            //saisie user
+            userInput = scanner.nextLine();
+
+            personnage = pdt.printDataOfOneHero(db, userInput);
+
+            return personnage;
+
         } else {
-            System.out.println("Veuillez saisir uniquement " + this.create + " ou " + this.quitter + " ? ");
-            throw new MyException("Vous n'avez pas choisi de personnage");
+            System.out.println("Veuillez saisir uniquement " + this.create + " ou " + this.use + " ou " + this.quitter + " ? ");
+            throw new MyException("Vous n'avez pas saisie un choix disponible");
         }
     }
 
@@ -99,17 +152,23 @@ public class Menu {
         ;
     }
 
-    public void verifyTypePersonnage(String magicien, String warriors, String personnageName) {
+    public void verifyTypePersonnage(String magicien, String warriors, String personnageName) throws SQLException {
         this.userInput = scanner.nextLine();
+        this.ah = new AddHero();
 
         if (magicien.equals(userInput)) {
             personnage = new Magicien(personnageName);
+            ah.addHero(db , personnage);
+
         } else if (warriors.equals(userInput)) {
             personnage = new Guerrier(personnageName);
+            ah.addHero(db, personnage);
+
         } else {
             System.out.println("Veuillez saisir uniquement " + this.magicien + " ou " + this.warriors + " ? ");
         }
     }
+    /*_____________________________________________________________________________________________________*/
 
     public void lancerPartie() {
 
@@ -128,6 +187,13 @@ public class Menu {
         }
     }
 
+    public String lancerDe(){
+        System.out.println("Pour lancer les dés écriver " + this.lance + " dans la console");
+        System.out.println("Pour quitter écriver " + this.quitter);
+
+        this.userInput = scanner.nextLine();
+        return userInput;
+    }
     public String catchSurprise(){
         System.out.println("La case contient une surprise. Récupérer là, puis Lancer les dés");
 
@@ -157,6 +223,19 @@ public class Menu {
             System.out.println("Êtes vous sure d'avoir saisie correctement " + this.kill + " ou " + this.quitter + " ? ");
             ennemyCase();        }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
     /*----------SETTER/GETTER--------*/
     public String setQuitter(String quitter) {
         this.quitter = quitter;
